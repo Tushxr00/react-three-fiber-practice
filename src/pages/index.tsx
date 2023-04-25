@@ -1,8 +1,24 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Canvas } from "@react-three/fiber";
 
 export default function Home() {
-  return <>R3F</>;
+  return (
+    <div className="w-screen h-screen ">
+      <Canvas>
+        {/* <group>
+        <mesh>
+          <boxGeometry attach={"geometry"} />
+          <meshBasicMaterial color="blue" />
+        </mesh>
+        <mesh>
+          <boxGeometry attach={"geometry"} />
+          <meshBasicMaterial color="blue" />
+        </mesh>
+      </group> */}
+        <mesh>
+          <torusKnotGeometry />
+          <meshNormalMaterial />
+        </mesh>
+      </Canvas>
+    </div>
+  );
 }
