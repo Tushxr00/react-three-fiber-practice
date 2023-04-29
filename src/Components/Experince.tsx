@@ -16,6 +16,10 @@ const Experince = () => {
         <sphereGeometry args={[0.7, 32, 32]} />
         <meshBasicMaterial color="orange" wireframe />
       </mesh>
+      <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
+        <planeGeometry />
+        <meshBasicMaterial color="greenYellow" />
+      </mesh>
     </>
   );
 };
