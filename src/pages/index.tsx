@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 
 export default function Home() {
-  const cameraSettings = {
+  const cameraSettings: any = {
     fov: 45,
     // zoom: 30,
     near: 0.1,
@@ -11,11 +11,13 @@ export default function Home() {
     position: [3, 2, 6],
   };
   return (
-    <div className="w-screen h-screen ">
+    <div className="w-screen h-screen bg-blue-300">
       <Canvas
+        dpr={[1, 2]}
         gl={{
           antialias: true,
-          toneMapping: THREE.CineonToneMapping,
+          toneMapping: THREE.ACESFilmicToneMapping,
+          outputEncoding: THREE.sRGBEncoding,
         }}
         camera={cameraSettings}
       >
