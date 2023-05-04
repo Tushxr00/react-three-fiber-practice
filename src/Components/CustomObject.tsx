@@ -16,7 +16,7 @@ const CustomObject = () => {
   }, [verticesCount]);
 
   useEffect(() => {
-    console.log(geomertyRef.current);
+    // console.log(geomertyRef.current);
     geomertyRef.current?.computeVertexNormals();
   }, []);
   return (

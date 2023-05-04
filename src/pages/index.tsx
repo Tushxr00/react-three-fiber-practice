@@ -1,5 +1,6 @@
 import Experince from "@/Components/Experince";
 import { Canvas } from "@react-three/fiber";
+import * as THREE from "three";
 
 export default function Home() {
   const cameraSettings = {
@@ -11,7 +12,13 @@ export default function Home() {
   };
   return (
     <div className="w-screen h-screen ">
-      <Canvas camera={cameraSettings}>
+      <Canvas
+        gl={{
+          antialias: true,
+          toneMapping: THREE.CineonToneMapping,
+        }}
+        camera={cameraSettings}
+      >
         <Experince />
       </Canvas>
     </div>

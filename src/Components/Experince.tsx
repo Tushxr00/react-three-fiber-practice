@@ -9,14 +9,14 @@ extend({ OrbitControls });
 const Experince = () => {
   const groupRef = useRef();
   const cubeRef = useRef(null);
-  // const { camera, gl } = useThree();
+  const { camera, gl } = useThree();
   useFrame((state, delta) => {
     // console.log(state.camera);
     // console.log(state.clock.elapsedTime);
-    const angel = state.clock.elapsedTime;
-    state.camera.position.x = Math.sin(angel) * 8;
-    state.camera.position.z = Math.cos(angel) * 8;
-    state.camera.lookAt(0, 0, 0);
+    // const angel = state.clock.elapsedTime;
+    // state.camera.position.x = Math.sin(angel) * 8;
+    // state.camera.position.z = Math.cos(angel) * 8;
+    // state.camera.lookAt(0, 0, 0);
     // console.log({ delta });
 
     // groupRef.current.rotation.y += delta;
@@ -25,7 +25,7 @@ const Experince = () => {
 
   return (
     <>
-      {/* <orbitControls args={[camera, gl.domElement]} /> */}
+      <orbitControls args={[camera, gl.domElement]} />
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
       {/* <mesh>
