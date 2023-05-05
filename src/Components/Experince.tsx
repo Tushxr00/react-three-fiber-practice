@@ -25,7 +25,7 @@ const Experince = () => {
         <torusKnotGeometry />
         <meshNormalMaterial />
       </mesh> */}
-      <OrbitControls />
+      <OrbitControls makeDefault />
       {/* <group ref={groupRef}> */}
       <mesh
         // position={[2.5, 0, 0]}
