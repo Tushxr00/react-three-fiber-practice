@@ -10,11 +10,21 @@ import {
 import { useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
 import * as THREE from "three";
+import { useControls } from "leva";
 
 const Experince = () => {
   const groupRef = useRef();
   const cubeRef = useRef(null);
   const sphereRef = useRef(null);
+  const { position } = useControls({
+    position: {
+      value: -2,
+      min: -4,
+      max: 4,
+      step: 0.01,
+    },
+  });
+  // console.log({ controls });
   useFrame((state, delta) => {
     // console.log(state.camera);
     // console.log(state.clock.elapsedTime);
@@ -61,7 +71,7 @@ const Experince = () => {
         scale={50}
         fixed={true}
       > */}
-      <mesh position={[-2, 0, 0]} scale={1} ref={sphereRef}>
+      <mesh position={[position, 0, 0]} scale={1} ref={sphereRef}>
         <sphereGeometry args={[0.7, 32, 32]} />
         <meshStandardMaterial color="orange" wireframe={false} />
         <Html
