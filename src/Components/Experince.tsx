@@ -46,7 +46,14 @@ const Experince = () => {
       {/*  */}
 
       {/*  */}
-      <PivotControls anchor={[0, 0, 0]} depthTest={false}>
+      <PivotControls
+        anchor={[0, 0, 0]}
+        depthTest={false}
+        lineWidth={4}
+        axisColors={["#9381ff", "#ff4d6d", "#7ae582"]}
+        scale={100}
+        fixed={true}
+      >
         <mesh position={[-2.5, 0, 0]} scale={1.5}>
           <sphereGeometry args={[0.7, 32, 32]} />
           <meshStandardMaterial color="orange" wireframe={false} />
