@@ -1,5 +1,7 @@
 import {
+  Float,
   Html,
+  MeshReflectorMaterial,
   OrbitControls,
   PivotControls,
   Text,
@@ -56,7 +58,7 @@ const Experince = () => {
         depthTest={false}
         lineWidth={4}
         axisColors={["#9381ff", "#ff4d6d", "#7ae582"]}
-        scale={100}
+        scale={50}
         fixed={true}
       >
         <mesh position={[-4, 0, 0]} scale={1} ref={sphereRef}>
@@ -77,18 +79,27 @@ const Experince = () => {
       {/* </group> */}
       <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={20}>
         <planeGeometry />
-        <meshStandardMaterial color="greenYellow" />
+        {/* <meshStandardMaterial color="greenYellow" /> */}
+        <MeshReflectorMaterial
+          color="greenYellow"
+          mirror={0.75}
+          resolution={512}
+          blur={[1000, 1000]}
+          mixBlur={1}
+        />
       </mesh>
-      <Text
-        fontSize={1}
-        color={"salmon"}
-        position={[0, 2, 0]}
-        maxWidth={3}
-        textAlign="center"
-      >
-        I LOVE R3F
-        {/* <meshNormalMaterial side={THREE.DoubleSide} /> */}
-      </Text>
+      <Float speed={5} floatIntensity={10}>
+        <Text
+          fontSize={1}
+          color={"salmon"}
+          position={[0, 2, 0]}
+          maxWidth={3}
+          textAlign="center"
+        >
+          I LOVE R3F
+          {/* <meshNormalMaterial side={THREE.DoubleSide} /> */}
+        </Text>
+      </Float>
     </>
   );
 };
