@@ -1,4 +1,5 @@
 import {
+  Html,
   OrbitControls,
   PivotControls,
   TransformControls,
@@ -32,6 +33,7 @@ const Experince = () => {
       <OrbitControls makeDefault />
       {/* <group ref={groupRef}> */}
       {/*  */}
+
       <mesh
         // position={[2.5, 0, 0]}
         scale={1.5}
@@ -57,6 +59,14 @@ const Experince = () => {
         <mesh position={[-2.5, 0, 0]} scale={1.5}>
           <sphereGeometry args={[0.7, 32, 32]} />
           <meshStandardMaterial color="orange" wireframe={false} />
+          <Html
+            position={[1, 1, 0]}
+            wrapperClass="label"
+            center
+            distanceFactor={6}
+          >
+            {`That's a sphere`}
+          </Html>
         </mesh>
       </PivotControls>
       {/*  */}
