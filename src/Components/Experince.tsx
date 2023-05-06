@@ -18,10 +18,11 @@ const Experince = () => {
   const sphereRef = useRef(null);
   const { position } = useControls({
     position: {
-      value: -2,
+      value: { x: -2, y: 0 },
       min: -4,
       max: 4,
       step: 0.01,
+      joystick: "invertY",
     },
   });
   // console.log({ controls });
@@ -71,7 +72,7 @@ const Experince = () => {
         scale={50}
         fixed={true}
       > */}
-      <mesh position={[position, 0, 0]} scale={1} ref={sphereRef}>
+      <mesh position={[position.x, position.y, 0]} scale={1} ref={sphereRef}>
         <sphereGeometry args={[0.7, 32, 32]} />
         <meshStandardMaterial color="orange" wireframe={false} />
         <Html
