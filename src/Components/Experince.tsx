@@ -2,14 +2,17 @@ import {
   Html,
   OrbitControls,
   PivotControls,
+  Text,
   TransformControls,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
+import * as THREE from "three";
 
 const Experince = () => {
   const groupRef = useRef();
   const cubeRef = useRef(null);
+  const sphereRef = useRef(null);
   useFrame((state, delta) => {
     // console.log(state.camera);
     // console.log(state.clock.elapsedTime);
@@ -36,8 +39,8 @@ const Experince = () => {
 
       <mesh
         // position={[2.5, 0, 0]}
-        scale={1.5}
-        position-x={2}
+        scale={1}
+        position-x={4}
         ref={cubeRef}
       >
         <boxGeometry scale={1.5} />
@@ -56,7 +59,7 @@ const Experince = () => {
         scale={100}
         fixed={true}
       >
-        <mesh position={[-2.5, 0, 0]} scale={1.5}>
+        <mesh position={[-4, 0, 0]} scale={1} ref={sphereRef}>
           <sphereGeometry args={[0.7, 32, 32]} />
           <meshStandardMaterial color="orange" wireframe={false} />
           <Html
@@ -64,6 +67,7 @@ const Experince = () => {
             wrapperClass="label"
             center
             distanceFactor={6}
+            // occlude={[sphereRef, cubeRef]}
           >
             {`That's a sphere`}
           </Html>
@@ -71,10 +75,20 @@ const Experince = () => {
       </PivotControls>
       {/*  */}
       {/* </group> */}
-      <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
+      <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={20}>
         <planeGeometry />
         <meshStandardMaterial color="greenYellow" />
       </mesh>
+      <Text
+        fontSize={1}
+        color={"salmon"}
+        position={[0, 2, 0]}
+        maxWidth={3}
+        textAlign="center"
+      >
+        I LOVE R3F
+        {/* <meshNormalMaterial side={THREE.DoubleSide} /> */}
+      </Text>
     </>
   );
 };
