@@ -11,6 +11,7 @@ import { useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
 import * as THREE from "three";
 import { useControls } from "leva";
+import { Perf } from "r3f-perf";
 
 const Experince = () => {
   const groupRef = useRef();
@@ -61,6 +62,7 @@ const Experince = () => {
 
   return (
     <>
+      <Perf position="top-left" />
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
       {/* <mesh>
