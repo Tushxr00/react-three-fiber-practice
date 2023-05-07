@@ -16,7 +16,11 @@ const Experince = () => {
   const groupRef = useRef();
   const cubeRef = useRef(null);
   const sphereRef = useRef(null);
-  const { position } = useControls({
+  const {
+    position: spherePosition,
+    color: sphereColor,
+    visible: sphereVisible,
+  } = useControls("sphere", {
     position: {
       value: { x: -2, y: 0 },
       min: -4,
@@ -24,6 +28,23 @@ const Experince = () => {
       step: 0.01,
       joystick: "invertY",
     },
+    color: "#ff0000",
+    visible: true,
+  });
+  const {
+    position: cubePosition,
+    color: cubeColor,
+    visible: cubeVisible,
+  } = useControls("cube", {
+    position: {
+      value: { x: -2, y: 0 },
+      min: -4,
+      max: 4,
+      step: 0.01,
+      joystick: "invertY",
+    },
+    color: "#9381ff",
+    visible: true,
   });
   // console.log({ controls });
   useFrame((state, delta) => {
@@ -72,9 +93,14 @@ const Experince = () => {
         scale={50}
         fixed={true}
       > */}
-      <mesh position={[position.x, position.y, 0]} scale={1} ref={sphereRef}>
+      <mesh
+        position={[spherePosition.x, spherePosition.y, 0]}
+        scale={1}
+        ref={sphereRef}
+        visible={sphereVisible}
+      >
         <sphereGeometry args={[0.7, 32, 32]} />
-        <meshStandardMaterial color="orange" wireframe={false} />
+        <meshStandardMaterial color={sphereColor} wireframe={false} />
         <Html
           position={[1, 1, 0]}
           wrapperClass="label"

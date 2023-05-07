@@ -1,5 +1,6 @@
 import Experince from "@/Components/Experince";
 import { Canvas } from "@react-three/fiber";
+import { Leva } from "leva";
 import * as THREE from "three";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
   };
   return (
     <div className="w-screen h-screen bg-blue-300">
+      <Leva />
       <Canvas
         dpr={[1, 2]}
         gl={{
