@@ -1,5 +1,5 @@
 import Experince from "@/Components/Experince";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, RootState } from "@react-three/fiber";
 import { Leva } from "leva";
 import * as THREE from "three";
 
@@ -11,8 +11,15 @@ export default function Home() {
     far: 200,
     position: [3, 2, 6],
   };
+
+  // const created = ({ scene }: RootState) => {
+  //   // console.log("created", gl);
+  //   // gl.setClearColor("#ff0000");
+  //   scene.background = new THREE.Color("purple");
+  // };
+
   return (
-    <div className="w-screen h-screen bg-blue-300">
+    <div className="w-screen h-screen ">
       {/* <Leva /> */}
       <Canvas
         dpr={[1, 2]}
@@ -22,7 +29,9 @@ export default function Home() {
           outputEncoding: THREE.sRGBEncoding,
         }}
         camera={cameraSettings}
+        // onCreated={created}
       >
+        <color args={["cyan"]} attach={"background"} />
         <Experince />
       </Canvas>
     </div>

@@ -16,7 +16,7 @@ import { Perf } from "r3f-perf";
 const Experince = () => {
   const cubeRef = useRef(null);
   useFrame((state, delta) => {
-    cubeRef.current.rotation.y += delta * 0.2;
+    cubeRef.current.rotation.y += delta * 0.5;
   });
 
   return (
