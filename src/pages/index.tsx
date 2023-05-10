@@ -1,7 +1,8 @@
-import Experince from "@/Components/Experince";
 import { Canvas, RootState } from "@react-three/fiber";
 import { Leva } from "leva";
 import * as THREE from "three";
+
+import Experince from "@/Components/Experince";
 
 export default function Home() {
   const cameraSettings: any = {
@@ -31,7 +32,7 @@ export default function Home() {
         camera={cameraSettings}
         // onCreated={created}
       >
-        <color args={["cyan"]} attach={"background"} />
+        <color args={["ivory"]} attach={"background"} />
         <Experince />
       </Canvas>
     </div>

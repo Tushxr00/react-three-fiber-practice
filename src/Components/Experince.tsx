@@ -6,6 +6,7 @@ import {
   PivotControls,
   Text,
   TransformControls,
+  useHelper,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
@@ -15,14 +16,20 @@ import { Perf } from "r3f-perf";
 
 const Experince = () => {
   const cubeRef = useRef(null);
+  const directLightRef = useRef(null);
   useFrame((state, delta) => {
     cubeRef.current.rotation.y += delta * 0.5;
   });
+  useHelper(directLightRef, THREE.DirectionalLightHelper, 1);
 
   return (
     <>
       <Perf position="top-left" />
-      <directionalLight position={[1, 2, 3]} intensity={1.5} />
+      <directionalLight
+        ref={directLightRef}
+        position={[1, 2, 3]}
+        intensity={1}
+      />
       <ambientLight intensity={0.5} />
       <OrbitControls makeDefault />
 
