@@ -5,6 +5,7 @@ import {
   MeshReflectorMaterial,
   OrbitControls,
   PivotControls,
+  SoftShadows,
   Text,
   TransformControls,
   useHelper,
@@ -26,7 +27,8 @@ const Experince = () => {
   return (
     <>
       <Perf position="top-left" />
-      <BakeShadows />
+      {/* <BakeShadows /> */}
+      <SoftShadows />
       <directionalLight
         ref={directLightRef}
         position={[1, 2, 3]}
