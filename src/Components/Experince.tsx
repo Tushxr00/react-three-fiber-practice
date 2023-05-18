@@ -26,12 +26,13 @@ const Experince = () => {
   return (
     <>
       <Perf position="top-left" />
-      {/* <BakeShadows /> */}
+      <BakeShadows />
       <directionalLight
         ref={directLightRef}
         position={[1, 2, 3]}
         intensity={1}
         castShadow
+        shadow-mapSize={[1024, 1024]}
       />
       <ambientLight intensity={0.5} />
       <OrbitControls makeDefault />
