@@ -24,7 +24,7 @@ export default function Home() {
       {/* <Leva /> */}
       <Canvas
         dpr={[1, 2]}
-        shadows
+        shadows={false}
         gl={{
           antialias: true,
           toneMapping: THREE.ACESFilmicToneMapping,
